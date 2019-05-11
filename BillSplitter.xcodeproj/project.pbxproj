@@ -15,6 +15,7 @@
 		2531033722875C5500EA6E52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531033622875C5500EA6E52 /* main.m */; };
 		2531034122875C5500EA6E52 /* BillSplitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531034022875C5500EA6E52 /* BillSplitterTests.m */; };
 		2531034C22875C5500EA6E52 /* BillSplitterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531034B22875C5500EA6E52 /* BillSplitterUITests.m */; };
+		2531035B2287788800EA6E52 /* BillSpliter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531035A2287788800EA6E52 /* BillSpliter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		2531034722875C5500EA6E52 /* BillSplitterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillSplitterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2531034B22875C5500EA6E52 /* BillSplitterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillSplitterUITests.m; sourceTree = "<group>"; };
 		2531034D22875C5500EA6E52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		253103592287788800EA6E52 /* BillSpliter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillSpliter.h; sourceTree = "<group>"; };
+		2531035A2287788800EA6E52 /* BillSpliter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillSpliter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				2531032A22875C5400EA6E52 /* ViewController.h */,
 				2531032B22875C5400EA6E52 /* ViewController.m */,
 				2531032D22875C5400EA6E52 /* Main.storyboard */,
+				253103592287788800EA6E52 /* BillSpliter.h */,
+				2531035A2287788800EA6E52 /* BillSpliter.m */,
 				2531033022875C5500EA6E52 /* Assets.xcassets */,
 				2531033222875C5500EA6E52 /* LaunchScreen.storyboard */,
 				2531033522875C5500EA6E52 /* Info.plist */,
@@ -264,6 +269,7 @@
 			files = (
 				2531032C22875C5400EA6E52 /* ViewController.m in Sources */,
 				2531033722875C5500EA6E52 /* main.m in Sources */,
+				2531035B2287788800EA6E52 /* BillSpliter.m in Sources */,
 				2531032922875C5400EA6E52 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
