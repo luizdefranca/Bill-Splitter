@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BillSpliter.h"
 
 @interface ViewController : UIViewController
 
