@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BillSpliter.h"
+#import "LCTipAmountCalculator.h"
 
 @interface ViewController : UIViewController
 

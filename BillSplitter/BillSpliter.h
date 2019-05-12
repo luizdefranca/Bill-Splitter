@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BillSpliter : NSObject {
     NSDecimalNumber * _splitAmount;
+    NSDecimalNumber * _billAmount;
 }
 
 @property (nonatomic, strong) NSDecimalNumber *billAmount;

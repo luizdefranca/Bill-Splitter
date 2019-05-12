@@ -12,7 +12,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *billAmountTextField;
 @property (weak, nonatomic) IBOutlet UISlider *numberOfPeopleSlider;
 @property (weak, nonatomic) IBOutlet UILabel *amountPerPersonTextField;
+@property (weak, nonatomic) IBOutlet UITextField *percentageTextField;
+
 @property (nonatomic, strong) BillSpliter * billSpliter;
+@property (nonatomic, strong) NSDecimalNumber * percentage;
+@property (nonatomic, strong) LCTipAmountCalculator *tipCalculator;
 
 @property (weak, nonatomic) IBOutlet UILabel *numberOfPeopleLabel;
 
@@ -23,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.billSpliter = [[BillSpliter alloc]init];
+    self.tipCalculator = [[LCTipAmountCalculator alloc]init];
     [self.billAmountTextField becomeFirstResponder];
     self.amountPerPersonTextField.text = @"Amount per person: CA$";
 
@@ -33,12 +38,24 @@
 }
 
 
+
 - (IBAction)calculateSplitAmount:(id)sender {
     self.billSpliter.billAmount = [NSDecimalNumber decimalNumberWithString: self.billAmountTextField.text];
-    self.billSpliter.numberOfPeople =   [NSString stringWithFormat:@"%.2f", self.numberOfPeopleSlider.value ];
-    NSLog( @"%@", [NSString stringWithFormat: @"%@", [self.billSpliter splitAmount] ]);
+    self.billSpliter.numberOfPeople =   [NSString stringWithFormat:@"%f", self.numberOfPeopleSlider.value ];
+    self.tipCalculator.amount = [NSDecimalNumber decimalNumberWithString: self.billAmountTextField.text];
+    self.tipCalculator.percentage = [NSDecimalNumber decimalNumberWithString: self.percentageTextField.text];
 
-    self.amountPerPersonTextField.text = [NSString stringWithFormat:@"%.2f", self.billSpliter.splitAmount.doubleValue  ];
+    NSLog( @"%@ splitAmount ->", [NSNumberFormatter
+                   localizedStringFromNumber: self.billSpliter.splitAmount
+                   numberStyle:NSNumberFormatterCurrencyStyle]);
+    NSLog(@"%@ tip ->",[NSNumberFormatter
+                 localizedStringFromNumber:self.tipCalculator.tip
+                 numberStyle:NSNumberFormatterCurrencyStyle] );
+    NSDecimalNumber *total = [self.billSpliter.splitAmount decimalNumberByAdding:self.tipCalculator.tip];
+    self.amountPerPersonTextField.text =[NSNumberFormatter
+                                         localizedStringFromNumber:total
+                                         numberStyle:NSNumberFormatterCurrencyStyle];
+
 }
 
 

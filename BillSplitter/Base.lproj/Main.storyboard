@@ -119,6 +119,7 @@
                         <outlet property="billAmountTextField" destination="hWV-WM-ERZ" id="d0I-Ok-xGa"/>
                         <outlet property="numberOfPeopleLabel" destination="eXb-ba-oFf" id="dME-cx-zao"/>
                         <outlet property="numberOfPeopleSlider" destination="MQD-Zv-ZKw" id="Ouy-oh-BxE"/>
+                        <outlet property="percentageTextField" destination="aRu-i5-hyo" id="dHo-r9-aEf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

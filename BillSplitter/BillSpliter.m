@@ -30,4 +30,13 @@
     return [_billAmount decimalNumberByDividingBy: numberOfPeopleNSnumber];
 }
 
+-(void) setBillAmount:(NSDecimalNumber *)billAmount{
+    NSDecimalNumber * noNumber = [NSDecimalNumber notANumber];
+    if([billAmount  isEqualToNumber: noNumber]){
+        _billAmount =  [NSDecimalNumber decimalNumberWithString: @"0.00"];
+    } else {
+        _billAmount = billAmount;
+    }
+}
+
 @end
