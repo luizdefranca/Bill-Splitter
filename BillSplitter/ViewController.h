@@ -10,7 +10,7 @@
 #import "BillSpliter.h"
 #import "LCTipAmountCalculator.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITextFieldDelegate>
 
 
 @end

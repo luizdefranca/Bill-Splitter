@@ -26,17 +26,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.percentageTextField.delegate = self;
+    self.billAmountTextField.delegate = self;
     self.billSpliter = [[BillSpliter alloc]init];
     self.tipCalculator = [[LCTipAmountCalculator alloc]init];
     [self.billAmountTextField becomeFirstResponder];
     self.amountPerPersonTextField.text = @"Amount per person: CA$";
-
+    [self createReturnButton];
 }
 
 - (IBAction)changeNumberOfPeople:(UISlider *)sender {
     self.numberOfPeopleLabel.text = [NSString stringWithFormat: @"Number of people: %.f", self.numberOfPeopleSlider.value];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.billAmountTextField) {
+        [textField resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
 
 
 - (IBAction)calculateSplitAmount:(id)sender {
@@ -58,5 +67,20 @@
 
 }
 
+-(void)createReturnButton {
 
+    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, 50);
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 300, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *returnItem =  [[UIBarButtonItem alloc]initWithTitle:@"Return" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)];
+    numberToolbar.items = @[spaceItem, returnItem];
+    [numberToolbar sizeToFit];
+   // self.billAmountTextField.inputAssistantItem = numberToolbar;
+    self.billAmountTextField.inputAccessoryView  = numberToolbar;
+}
+
+-(void)doneWithNumberPad {
+    [self.billAmountTextField resignFirstResponder];
+}
 @end
